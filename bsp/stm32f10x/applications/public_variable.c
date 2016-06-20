@@ -5,7 +5,7 @@ uchar ProUart0Rec;
 uchar KBDRecWrongFlag;
 volatile uchar Rec_keyboard_data_buffer[20];
 volatile uchar Current_Protocol;      
-uchar domeNo=0, Protocol_No;
+uchar domeNo=0xff, Protocol_No;
 uchar Baud_rate=0;
 uchar Rec_byte_com = 0, Rocket_fir_data, Rocket_sec_data, Rocket_thr_data, Rocket_fou_data,Rocket_six_data, Rocket_fiv_data, command_byte = 0;
 
