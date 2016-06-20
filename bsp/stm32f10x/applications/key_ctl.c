@@ -10,6 +10,7 @@
 #include "key_ctl.h"
 
 
+#define	LONG_KEY_DELAY			40
 
 
 #define	PD_ZOOM_FOCUS_STOP		0
@@ -274,6 +275,8 @@ u8 continue_motor_flag2 = 0;
 
 u8 key_combine_state = 0;
 
+
+
 static u16 key_check_1(void)
 {
 	u16 i;
@@ -285,7 +288,7 @@ static u16 key_check_1(void)
 	{
 		if(((key_tmp>>i)&0x0001)==0)
 		{
-			rt_thread_delay(40);
+			rt_thread_delay(LONG_KEY_DELAY);
 
 			key_tmp = key_merge();
 
@@ -296,7 +299,7 @@ static u16 key_check_1(void)
 
 					if(key_pre2 != KEY_NONE)
 					{
-						if(long_press_cnt>50)
+						if(long_press_cnt>30)
 						{
 							if(press_long_flag)
 								return 0;
